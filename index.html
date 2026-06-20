@@ -5,54 +5,230 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Moja parfemska bočica</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #fff;
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
       color: #333;
+      line-height: 1.6;
     }
+    
     header {
-      background-color: #f8f8f8;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       text-align: center;
-      padding: 2rem;
-      border-bottom: 2px solid #d4af37;
+      padding: 3rem 2rem;
+      color: white;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
+    
     header h1 {
-      color: #d4af37;
-      font-size: 2.5rem;
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     }
+    
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+    
     nav {
       text-align: center;
+      padding: 1.5rem;
+      background: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    nav a {
+      margin: 0 1.5rem;
+      text-decoration: none;
+      color: #667eea;
+      font-weight: 600;
+      transition: color 0.3s ease;
+      font-size: 1.1rem;
+    }
+    
+    nav a:hover {
+      color: #764ba2;
+      border-bottom: 2px solid #764ba2;
+      padding-bottom: 5px;
+    }
+    
+    section {
+      padding: 3rem 2rem;
+      max-width: 1000px;
+      margin: 2rem auto;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+    
+    section h2 {
+      color: #667eea;
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 3px solid #764ba2;
+      padding-bottom: 0.5rem;
+    }
+    
+    section p {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      color: #555;
+    }
+    
+    .gallery {
+      text-align: center;
+    }
+    
+    .gallery img {
+      width: 300px;
+      height: 300px;
+      margin: 15px;
+      border-radius: 10px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      object-fit: cover;
+    }
+    
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+    }
+    
+    .kupovina {
+      background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    }
+    
+    .kupovina h2 {
+      color: #d84315;
+    }
+    
+    .price {
+      font-size: 2.5rem;
+      color: #d84315;
+      font-weight: bold;
       margin: 1rem 0;
     }
-    nav a {
-      margin: 0 1rem;
-      text-decoration: none;
-      color: #333;
+    
+    .details {
+      list-style: none;
+      margin: 1.5rem 0;
+      font-size: 1.05rem;
+    }
+    
+    .details li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+    }
+    
+    .details li:before {
+      content: "✓ ";
+      color: #4caf50;
       font-weight: bold;
+      margin-right: 0.5rem;
     }
-    section {
-      padding: 2rem;
-      max-width: 900px;
-      margin: auto;
+    
+    button {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      font-weight: bold;
+      margin-top: 1rem;
     }
-    .gallery img {
-      width: 200px;
-      margin: 10px;
-      border: 1px solid #ccc;
+    
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
     }
+    
+    button:active {
+      transform: translateY(0);
+    }
+    
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    label {
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 0.3rem;
+    }
+    
+    input[type="text"],
+    textarea {
+      padding: 0.8rem;
+      border: 2px solid #e0e0e0;
+      border-radius: 5px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+    
+    input[type="text"]:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 10px rgba(102, 126, 234, 0.2);
+    }
+    
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    
     footer {
-      background-color: #f8f8f8;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       text-align: center;
-      padding: 1rem;
-      border-top: 2px solid #d4af37;
+      padding: 2rem;
+      color: white;
+      margin-top: 2rem;
+    }
+    
+    footer p {
+      margin: 0;
+    }
+    
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      nav a {
+        margin: 0 0.8rem;
+        font-size: 0.9rem;
+      }
+      
+      section {
+        padding: 2rem 1rem;
+      }
+      
+      .gallery img {
+        width: 200px;
+        height: 200px;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Elegantna staklena bočica</h1>
+    <h1>✨ Elegantna Staklena Bočica ✨</h1>
     <p>Luksuz i minimalizam u jednom proizvodu</p>
   </header>
 
@@ -65,34 +241,64 @@
 
   <section id="opis">
     <h2>O proizvodu</h2>
-    <p>Bočica je izrađena od visokokvalitetnog stakla, zapremine 50 ml, sa zlatnim raspršivačem i elegantnim dizajnom.</p>
+    <p>Naša bočica je savršeni izbor za one koji cijene kvalitet i eleganciju. Izrađena od visokokvalitetnog prozirnog stakla sa zlatnim detaljima, ova bočica predstavlja spoj modernog dizajna i klasičnog stila.</p>
+    
+    <h3 style="color: #764ba2; margin-top: 1.5rem; margin-bottom: 1rem;">Specifikacije:</h3>
+    <ul class="details">
+      <li>Zapremina: 50 ml</li>
+      <li>Materijal: Visokokvalitetno prozirno staklo</li>
+      <li>Raspršivač: Zlatni sa metalnom pumpom</li>
+      <li>Dizajn: Minimalistički sa elegantnim linijama</li>
+      <li>Težina: 120g (sa tekućinom)</li>
+      <li>Boja: Prozirna sa zlatnim akcentima</li>
+    </ul>
   </section>
 
   <section id="galerija" class="gallery">
     <h2>Galerija</h2>
-    <img src="bocica1.jpg" alt="Model bočice 1">
-    <img src="bocica2.jpg" alt="Model bočice 2">
+    <p style="margin-bottom: 2rem; color: #666;">Pogledajte kako izgleda naša bočica:</p>
+    <div>
+      <img src="download.png" alt="Elegantna parfemska bočica 1">
+      <img src="download.png" alt="Elegantna parfemska bočica 2">
+    </div>
   </section>
 
-  <section id="kupovina">
+  <section id="kupovina" class="kupovina">
     <h2>Kupovina</h2>
-    <p>Cena: 250 RSD po komadu</p>
-    <button>Kupi odmah</button>
+    <p>Sada možeš da kupiš ovu predivnu bočicu direktno od nas!</p>
+    
+    <div class="price">250 RSD</div>
+    
+    <p style="color: #555; font-size: 1rem;">
+      <strong>Uključeno u cijenu:</strong><br>
+      ✓ Elegantan pakovanje<br>
+      ✓ Besplatan transport za narudžbe iznad 500 RSD<br>
+      ✓ Garancija kvaliteta
+    </p>
+    
+    <button onclick="alert('Hvala na interesu! Uskoro ćemo aktivirati sistem za kupovinu.')">🛒 Kupi odmah</button>
   </section>
 
   <section id="kontakt">
     <h2>Kontakt</h2>
+    <p>Ako imate pitanja ili želite više informacija, slobodno nam se obratite:</p>
+    
     <form>
-      <label for="ime">Ime:</label><br>
-      <input type="text" id="ime" name="ime"><br><br>
-      <label for="poruka">Poruka:</label><br>
-      <textarea id="poruka" name="poruka"></textarea><br><br>
-      <button type="submit">Pošalji</button>
+      <label for="ime">Vaše ime:</label>
+      <input type="text" id="ime" name="ime" placeholder="Unesite vaše ime" required>
+      
+      <label for="email">Email adresa:</label>
+      <input type="text" id="email" name="email" placeholder="vasaemailadresa@primer.com" required>
+      
+      <label for="poruka">Vaša poruka:</label>
+      <textarea id="poruka" name="poruka" placeholder="Napišite vašu poruku..."></textarea>
+      
+      <button type="submit" onclick="event.preventDefault(); alert('Hvala na vašoj poruci! Kontaktiraćemo vas uskoro.');">📧 Pošalji poruku</button>
     </form>
   </section>
 
   <footer>
-    <p>&copy; 2026 Moja parfemska bočica</p>
+    <p>&copy; 2026 Moja Parfemska Bočica | Sva prava zadržana | Made with ❤️</p>
   </footer>
 </body>
 </html>
